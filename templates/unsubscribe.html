@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Delete my alerts{% endblock %}
+{% block content %}
+<form class="panel narrow" method="post" action="{{ url_for('unsubscribe', token=token) }}">
+  <h1 class="h2">Delete this alert?</h1>
+  <p>We'll stop emailing you about this product and erase it from our records.</p>
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  <label class="check"><input type="checkbox" name="all" value="1"> Delete all my alerts and my email address</label>
+  <button type="submit">Delete</button>
+</form>
+{% endblock %}
